@@ -12,7 +12,7 @@ from utils import (
 )
 from tts_engine import tts_generate
 
-client = OpenAI(base_url="https://api.qnaigc.com/v1")
+client = OpenAI(base_url="https://api.openai.com/v1")
 
 # ==== LLM ====
 def generate_curves(text):
@@ -29,7 +29,7 @@ Text:
 \"\"\"{text}\"\"\"
 """
     resp = client.chat.completions.create(
-        model="deepseek/deepseek-v4-flash",
+        model="gpt-5.4-nano",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.2,
         # 国产 API 部分不支持 response_format，靠 prompt 约束 JSON 输出[cite: 5]
